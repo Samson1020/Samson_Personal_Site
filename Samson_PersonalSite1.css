@@ -56,6 +56,16 @@ header p {
     transform: scale(1.1); /* Scale up on hover */
 }
 
+/* Intro Section Styling */
+.intro {
+    text-align: center;
+    margin: 50px 0; /* Adjust for spacing */
+    font-size: 3em;
+    font-weight: bold;
+    color: #007BFF; /* Bright blue to match header */
+    animation: bounceIn 1.5s ease; /* Use bounceIn animation for emphasis */
+}
+
 /* Section Styling */
 section {
     width: 80%;
