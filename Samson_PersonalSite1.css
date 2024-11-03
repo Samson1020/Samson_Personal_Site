@@ -42,18 +42,31 @@ header p {
     color: #B0BEC5; /* Light gray */
 }
 
-/* Contact Info Links */
+/* Contact Info Styling */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
 .contact-info a {
-    color: #007BFF; /* Bright blue */
+    color: #007BFF; /* Link color */
     text-decoration: none;
     font-weight: bold;
-    margin: 0 8px;
-    transition: color 0.3s ease, transform 0.3s ease; /* Added transform for scale effect */
+    transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
-    color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.1); /* Scale up on hover */
+    color: #ffffff; /* Change color on hover */
+}
+
+/* Separator Styling */
+.separator {
+    color: #B0BEC5; /* Light gray for the separator */
+    margin: 0 8px; /* Spacing around the separator */
+    font-size: 1.5em; /* Slightly larger for visibility */
 }
 
 /* Intro Section Styling */
