@@ -1,0 +1,135 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1C1C1E; /* Dark gray background for contrast */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    animation: backgroundColorChange 12s infinite alternate;
+}
+
+@keyframes backgroundColorChange {
+    0% { background-color: #1C1C1E; }
+    50% { background-color: #2C2C2E; }
+    100% { background-color: #3C3C3E; }
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+header h1 {
+    font-size: 3em; /* Increased font size */
+    margin-bottom: 0.2em;
+    color: #007BFF; /* Bright blue */
+    animation: bounceIn 1s ease;
+}
+
+header p {
+    font-size: 1.3em; /* Slightly larger text */
+    color: #B0BEC5; /* Light gray */
+}
+
+/* Contact Info Links */
+.contact-info a {
+    color: #007BFF; /* Bright blue */
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 8px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transform for scale effect */
+}
+
+.contact-info a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+/* Section Styling */
+section {
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #2C2C2E; /* Dark gray */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeIn 1s ease forwards, slideIn 0.5s ease forwards; /* Added slide-in animation */
+}
+
+h2 {
+    font-size: 2em; /* Increased header size */
+    margin-bottom: 10px;
+    color: #007BFF; /* Bright blue */
+}
+
+p, li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #E0E0E0; /* Soft light gray */
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; } /* Slide from below */
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* Fade-in class */
+.fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Slide-in class */
+.slide-in {
+    animation: slideIn 1s ease-out forwards;
+}
+
+/* Hover Effects */
+section:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease, box-shadow 0.3s ease; /* Shadow change on hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Increased shadow on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em; /* Reduce size on smaller screens */
+    }
+
+    section {
+        width: 90%; /* Make section wider on smaller screens */
+    }
+
+    p, li {
+        font-size: 1em; /* Slightly smaller text */
+    }
+}
