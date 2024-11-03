@@ -8,7 +8,7 @@
 /* Body Styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #2C2C2E; /* Static dark grey background */
+    background-color: #1C1C1E; /* Dark gray background for contrast */
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -44,15 +44,18 @@ header p {
     font-size: 1.1em;
 }
 
-.contact-info a {
+.contact-block {
+    padding: 10px 15px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
     color: #007BFF; /* Link color */
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for background and text color */
 }
 
-.contact-info a:hover {
-    color: #ffffff; /* Change color on hover */
+.contact-block:hover {
+    background-color: #007BFF; /* Background color change on hover */
+    color: #ffffff; /* Text color change on hover */
 }
 
 /* Separator Styling */
@@ -72,44 +75,10 @@ header p {
     animation: bounceIn 1.5s ease; /* Use bounceIn animation for emphasis */
 }
 
-/* Section Styling */
-section {
-    width: 80%;
-    max-width: 800px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: #1C1C1E; /* Darker grey for sections */
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    animation: fadeIn 1s ease forwards, slideIn 0.5s ease forwards; /* Added slide-in animation */
-}
-
-h2 {
-    font-size: 2em; /* Increased header size */
-    margin-bottom: 10px;
-    color: #007BFF; /* Bright blue */
-}
-
-p, li {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    color: #E0E0E0; /* Soft light gray */
-}
-
-ul {
-    list-style-type: none;
-}
-
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { transform: translateY(20px); opacity: 0; } /* Slide from below */
-    to { transform: translateY(0); opacity: 1; }
 }
 
 @keyframes bounceIn {
@@ -118,34 +87,21 @@ ul {
     100% { transform: scale(1); }
 }
 
-/* Fade-in class */
-.fade-in {
-    animation: fadeIn 1s ease-out forwards;
-}
-
-/* Slide-in class */
-.slide-in {
-    animation: slideIn 1s ease-out forwards;
-}
-
-/* Hover Effects */
-section:hover {
-    transform: scale(1.02);
-    transition: transform 0.2s ease, box-shadow 0.3s ease; /* Shadow change on hover */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Increased shadow on hover */
-}
-
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     header h1 {
         font-size: 2.5em; /* Reduce size on smaller screens */
     }
 
-    section {
-        width: 90%; /* Make section wider on smaller screens */
+    .contact-info {
+        font-size: 1em; /* Slightly smaller text */
     }
 
-    p, li {
-        font-size: 1em; /* Slightly smaller text */
+    .contact-block {
+        padding: 8px 12px; /* Adjust padding for smaller screens */
+    }
+
+    .separator {
+        font-size: 1.2em; /* Adjust separator size for smaller screens */
     }
 }
