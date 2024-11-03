@@ -45,12 +45,13 @@ header p {
 }
 
 .contact-block {
-    padding: 10px 15px; /* Padding around the text */
+    padding: 5px 10px; /* Padding around the text */
     border-radius: 5px; /* Rounded corners */
     color: #007BFF; /* Link color */
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for background and text color */
+    margin: 0 2px; /* Further reduced margin to create minimal space between items */
 }
 
 .contact-block:hover {
@@ -61,7 +62,7 @@ header p {
 /* Separator Styling */
 .separator {
     color: #B0BEC5; /* Light gray for the separator */
-    margin: 0 8px; /* Spacing around the separator */
+    margin: 0 1px; /* Further reduced spacing around the separator */
     font-size: 1.5em; /* Slightly larger for visibility */
 }
 
