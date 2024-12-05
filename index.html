@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Samson Mulugeta">
-    <title>Samson Mulugeta - Personal Website</title>
+    <meta name="description" content="Samson Mulugeta - Personal Portfolio">
+    <title>Samson Mulugeta - Portfolio</title>
     <link rel="stylesheet" href="Samson_PersonalSite.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
+    <script defer src="animations.js"></script>
 </head>
 <body>
+    <!-- Gradient Background -->
+    <div class="gradient-bg"></div>
+
+    <!-- Animated Particles -->
+    <div id="particles-container"></div>
 
     <!-- Header Section -->
     <header>
@@ -20,10 +28,53 @@
         </div>
     </header>
 
-    <!-- Middle Section with "Hi this is Samson" -->
-    <div class="intro">
-        <h5>Hi this is Samson</h5>
-    </div>
+    <!-- Education Section -->
+    <section class="education">
+        <h2>Education</h2>
+        <div>
+            <h3>University of Maryland</h3>
+            <p><strong>BS in Information Science</strong>, Minor: Information Risk Management, Ethics, and Privacy</p>
+            <p><strong>GPA:</strong> 3.74 | <strong>Maryland Promise Program Scholar</strong></p>
+        </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section class="experience">
+        <h2>Professional Experience</h2>
+
+        <!-- Finance Committee Member -->
+        <div class="experience-entry">
+            <h3>Finance Committee Member</h3>
+            <p><strong>Student Government Association Finance</strong>, College Park, MD | <em>August 2023 – Present</em></p>
+            <ul>
+                <li>Allocated budget from a $2.7 million funding pool to student groups and initiatives.</li>
+                <li>Promoted equitable funding distribution across 35,000 students.</li>
+                <li>Educated over 414 student groups on financial guidelines through the appeals process.</li>
+            </ul>
+        </div>
+
+        <!-- IT Administrative Intern -->
+        <div class="experience-entry">
+            <h3>IT Administrative Intern</h3>
+            <p><strong>US Department of the Interior</strong>, Washington, D.C. | <em>June 2023 – Present</em></p>
+            <ul>
+                <li>Assisted the Office of the Chief Information Officer in implementing the Government Zero Trust Initiative by writing reports and coordinating meetings.</li>
+                <li>Collaborated with professionals to assess network infrastructure and develop a customized zero trust strategy.</li>
+                <li>Supported policy development for zero trust principles and tracked progress during meetings.</li>
+            </ul>
+        </div>
+
+        <!-- IT Support Technician -->
+        <div class="experience-entry">
+            <h3>Information Technology Support Technician</h3>
+            <p><strong>University of Maryland Department of IT</strong>, College Park, MD | <em>April 2022 – May 2023</em></p>
+            <ul>
+                <li>Created and assigned tickets for technology issues reported by faculty and professors.</li>
+                <li>Resolved hardware and software problems related to classroom technology.</li>
+                <li>Maintained and preserved hundreds of hardware assets across the campus.</li>
+            </ul>
+        </div>
+    </section>
 
 </body>
 </html>

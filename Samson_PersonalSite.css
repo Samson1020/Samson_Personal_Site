@@ -7,91 +7,124 @@
 
 /* Body Styling */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #1C1C1E; /* Dark gray background for contrast */
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF; /* White text */
+    background-color: #000000; /* Black fallback */
+    overflow-x: hidden;
+    position: relative;
 }
 
-/* Header Styling */
-header {
-    text-align: center;
-    margin-bottom: 20px;
-    animation: fadeIn 1s ease-out;
+/* Gradient Background */
+.gradient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #00509E, #000000);
+    background-size: 300% 300%;
+    animation: gradient-animation 15s ease-in-out infinite; /* Smoother and slower animation */
+    z-index: -1;
 }
 
-header h1 {
-    font-size: 3em; /* Increased font size */
-    margin-bottom: 0.2em;
-    color: #007BFF; /* Bright blue */
-    animation: bounceIn 1s ease;
-}
-
-header p {
-    font-size: 1.3em; /* Slightly larger text */
-    color: #B0BEC5; /* Light gray */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 50% 50%; }
+    50% { background-position: 100% 50%; }
+    75% { background-position: 50% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Contact Info Styling */
 .contact-info {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-    font-size: 1.1em;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
 }
 
 .contact-block {
-    padding: 5px 10px; /* Padding around the text */
-    border-radius: 5px; /* Rounded corners */
-    color: #007BFF; /* Link color */
+    padding: 10px 20px;
+    color: #FFFFFF;
+    background: #00509E;
+    border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for background and text color */
-    margin: 0 2px; /* Further reduced margin to create minimal space between items */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .contact-block:hover {
-    background-color: #007BFF; /* Background color change on hover */
-    color: #ffffff; /* Text color change on hover */
+    transform: scale(1.1);
+    background-color: #003366;
 }
 
-/* Separator Styling */
-.separator {
-    color: #B0BEC5; /* Light gray for the separator */
-    margin: 0 1px; /* Further reduced spacing around the separator */
-    font-size: 1.5em; /* Slightly larger for visibility */
+/* Sections */
+section {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
 }
 
-/* Intro Section Styling */
-.intro {
+section h2 {
+    font-size: 2em;
+    color: #FFFFFF;
+    border-bottom: 2px solid #00509E;
+    margin-bottom: 20px;
+}
+
+section p {
+    color: #E0E0E0;
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+section ul {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+section ul li {
+    list-style-type: disc;
+    color: #E0E0E0;
+    font-size: 0.95em;
+    margin-bottom: 8px;
+}
+
+/* Experience Spacing */
+.experience-entry {
+    margin-bottom: 30px;
+}
+
+/* Header Styling */
+header {
     text-align: center;
-    margin: 50px 0; /* Adjust for spacing */
-    font-size: 3em;
-    font-weight: bold;
-    color: #007BFF; /* Bright blue to match header */
-    animation: bounceIn 1.5s ease; /* Use bounceIn animation for emphasis */
+    margin-top: 50px;
 }
 
+header h1 {
+    font-size: 3.5em;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    animation: slide-in 2s ease;
+}
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5em; /* Reduce size on smaller screens */
-    }
+header p {
+    font-size: 1.3em;
+    color: #E0E0E0;
+    margin: 10px 0;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fade-in 2s ease 1s forwards;
+}
 
-    .contact-info {
-        font-size: 1em; /* Slightly smaller text */
-    }
-
-    .contact-block {
-        padding: 8px 12px; /* Adjust padding for smaller screens */
-    }
-
-    .separator {
-        font-size: 1.2em; /* Adjust separator size for smaller screens */
-    }
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #E0E0E0;
 }
