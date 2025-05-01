@@ -23,7 +23,7 @@ body {
     height: 100%;
     background: linear-gradient(135deg, #00509E, #000000);
     background-size: 300% 300%;
-    animation: gradient-animation 15s ease-in-out infinite; /* Smoother and slower animation */
+    animation: gradient-animation 15s ease-in-out infinite;
     z-index: -1;
 }
 
@@ -127,4 +127,25 @@ footer {
     margin-top: 50px;
     font-size: 0.9em;
     color: #E0E0E0;
+}
+
+/* Project Section Styling */
+.project-entry {
+    margin-bottom: 30px;
+}
+
+.project-entry h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Make project titles white and underlined */
+.project-entry h3 a {
+    color: #FFFFFF;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.project-entry h3 a:hover {
+    color: #00BFFF;
 }
