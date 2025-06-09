@@ -20,9 +20,9 @@
     <!-- Header Section -->
     <header>
         <h1>Samson Mulugeta</h1>
-        <p>Information Science Major at the University of Maryland</p>
+        <p>BS in Information Science from the University of Maryland</p>
         <div class="contact-info">
-            <a href="mailto:smulug1244@gmail.com" class="contact-block">Email</a>
+            <a href="javascript:void(0)" id="copy-email" class="contact-block">Email</a>
             <a href="https://www.linkedin.com/in/samson02/" target="_blank" class="contact-block">LinkedIn</a>
             <a href="SamsonResumeWebsite.pdf" download class="contact-block">Resume</a>
             <a href="projects.html" class="contact-block">Projects</a>
@@ -35,7 +35,7 @@
         <div>
             <h3>University of Maryland</h3>
             <p><strong>BS in Information Science</strong>, Minor: Information Risk Management, Ethics, and Privacy</p>
-            <p><strong>GPA:</strong> 3.78 | <strong><a href="https://promise.umd.edu/" target="_blank" style="color: #007BFF; text-decoration: underline;">Maryland Promise Program Scholar</a></strong></p>
+            <p><strong>GPA:</strong> 3.79 | <strong><a href="https://promise.umd.edu/" target="_blank" style="color: #007BFF; text-decoration: underline;">Maryland Promise Program Scholar</a></strong></p>
         </div>
     </section>
 
@@ -67,7 +67,6 @@
             </ul>
         </div>
 
-
         <!-- IT Support Technician -->
         <div class="experience-entry">
             <h3>Information Technology Support Technician</h3>
@@ -79,5 +78,17 @@
             </ul>
         </div>
     </section>
+
+    <!-- Clipboard Copy Script -->
+    <script>
+        document.getElementById("copy-email").addEventListener("click", function () {
+            const email = "smulug1244@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Email copied to clipboard!");
+            }).catch((err) => {
+                console.error("Failed to copy email: ", err);
+            });
+        });
+    </script>
 </body>
 </html>
