@@ -3,118 +3,521 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Samson Mulugeta">
+    <meta name="description" content="Samson Mulugeta - Information Science Portfolio">
     <title>Samson Mulugeta</title>
-    <link rel="stylesheet" href="Samson_PersonalSite.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.5/lottie.min.js"></script>
-    <script defer src="animations.js"></script>
+    
+    <!-- Fonts: Playfair Display for Headings, Lato for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+             /* NEW THEME: Midnight Blue & Electric Cyan */
+            
+            /* Sidebar: Deep Black → Navy Gradient */
+            ---sidebar-bg-start: #020617; /* Near-black navy */
+            --sidebar-bg-end: #0f172a;   /* Dark blue slate */
+            --sidebar-text: #e2e8f0;     /* Light cool gray */
+
+            /* Main Content: Dark Blue */
+            --bg-color: #0f172a;         /* Deep slate blue */
+            --bg-card: #1e293b;          /* Slate 800 */
+            --text-primary: #f1f5f9;  /* Slate 100 */
+            --text-secondary: #cbd5e1; /* Slate 300 */
+            
+            /* Accent: Electric Cyan */
+            --accent-color: #22d3ee;     /* Cyan 400 */
+            --accent-hover: #06b6d4;     /* Cyan 500 */
+            
+            /* Tag Colors */
+            --tag-bg: #083344;           /* Deep teal 900 */
+            --tag-text: #67e8f9;         /* Cyan 300 */
+            --tag-border: #0891b2;       /* Cyan 700 */
+        }
+
+        /* --- RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- MAIN LAYOUT --- */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr; /* Fixed Sidebar width */
+            min-height: 100vh;
+        }
+
+        /* --- LEFT SIDEBAR --- */
+        .sidebar {
+            background: linear-gradient(180deg, var(--sidebar-bg-start) 0%, var(--sidebar-bg-end) 100%);
+            color: var(--sidebar-text);
+            padding: 4rem 2.5rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-right: 1px solid rgba(255,255,255,0.05);
+            z-index: 10;
+        }
+
+        .brand h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .brand p {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        .nav-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 20px;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(52, 211, 153, 0.1); /* Green tint */
+            color: var(--accent-color);
+            transform: translateX(5px);
+            border-color: rgba(52, 211, 153, 0.2);
+        }
+
+        .nav-link i { width: 20px; text-align: center; }
+
+        .sidebar-footer { margin-top: 2rem; }
+
+        .contact-info {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-icons { display: flex; gap: 15px; }
+        
+        .social-btn {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .social-btn:hover { 
+            background: var(--accent-color); 
+            color: var(--sidebar-bg-start); 
+            border-color: var(--accent-color);
+            transform: scale(1.1); 
+        }
+
+        /* --- RIGHT CONTENT --- */
+        .content-area {
+            padding: 5rem 10%;
+            background-color: var(--bg-color);
+        }
+
+        section { margin-bottom: 6rem; scroll-margin-top: 4rem; }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* --- EDUCATION CARD --- */
+        .edu-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .edu-info h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff; }
+        .edu-info p { color: var(--text-secondary); font-size: 1.1rem; }
+        .edu-meta { text-align: right; }
+        .edu-gpa { 
+            display: inline-block; 
+            background: var(--tag-bg); 
+            color: var(--tag-text); 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            font-weight: 700;
+            margin-top: 10px;
+            border: 1px solid var(--tag-border);
+        }
+
+        /* --- EXPERIENCE CARDS --- */
+        .exp-card {
+            background: var(--bg-card);
+            border-left: 4px solid var(--accent-color);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .exp-card:hover {
+            transform: translateX(5px);
+            background: #3d4c63; /* Slightly lighter slate on hover */
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .exp-role { font-size: 1.3rem; font-weight: 700; color: #fff; }
+        .exp-date { font-size: 0.9rem; color: var(--accent-color); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .exp-company { font-size: 1rem; color: #94a3b8; margin-bottom: 1rem; font-style: italic; }
+
+        .exp-card ul { list-style: none; padding-left: 0.5rem; }
+        .exp-card li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.95rem; }
+        .exp-card li::before { content: '▹'; position: absolute; left: 0; color: var(--accent-color); }
+
+        /* --- PROJECT GRID --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .project-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 { font-size: 1.2rem; margin-bottom: 0.8rem; color: #fff; }
+        .project-card p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem; flex-grow: 1; }
+
+        .project-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: auto;
+            transition: 0.2s;
+        }
+        .project-link:hover { color: var(--accent-color); gap: 12px; }
+
+        /* --- SKILLS (PILLS) --- */
+        .skills-wrapper { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+        .skill-pill {
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: 0.3s;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            border: 1px solid var(--tag-border);
+        }
+
+        .skill-pill:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 12px rgba(52, 211, 153, 0.2);
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 900px) {
+            .main-layout { grid-template-columns: 1fr; }
+            
+            .sidebar {
+                height: auto;
+                position: relative;
+                padding: 3rem 1.5rem;
+            }
+            
+            .nav-menu { flex-direction: row; flex-wrap: wrap; }
+            .content-area { padding: 3rem 1.5rem; }
+            
+            .edu-meta { text-align: left; margin-top: 1rem; }
+            .edu-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Gradient Background -->
-    <div class="gradient-bg"></div>
 
-    <!-- Animated Particles -->
-    <div id="particles-container"></div>
+    <div class="main-layout">
+        
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <div>
+                <div class="brand">
+                    <h1>Samson<br>Mulugeta</h1>
+                    <p>Information Science Graduate</p>
+                </div>
+                
+                <nav class="nav-menu">
+                    <a href="#education" class="nav-link">
+                        <i class="fas fa-graduation-cap"></i> Education
+                    </a>
+                    <a href="#experience" class="nav-link">
+                        <i class="fas fa-briefcase"></i> Experience
+                    </a>
+                    <a href="#projects" class="nav-link">
+                        <i class="fas fa-code-branch"></i> Projects
+                    </a>
+                    <a href="#skills" class="nav-link">
+                        <i class="fas fa-layer-group"></i> Skills
+                    </a>
+                    <a href="SamsonResumeWebsite.pdf" target="_blank" class="nav-link">
+                        <i class="fas fa-file-pdf"></i> Resume
+                    </a>
+                </nav>
+            </div>
 
-    <!-- Header Section -->
-    <header>
-        <h1>Samson Mulugeta</h1>
-        <p>Information Science Graduate from the University Of Maryland</p>
-        <div class="contact-info">
-            <a href="javascript:void(0)" id="copy-email" class="contact-block">Email</a>
-            <a href="https://www.linkedin.com/in/samson02/" target="_blank" class="contact-block">LinkedIn</a>
-            <a href="SamsonResumeWebsite.pdf" target="_blank" class="contact-block">Resume</a>
-            <a href="projects.html" class="contact-block">Projects</a>
-        </div>
-    </header>
+            <div class="sidebar-footer">
+                <div class="contact-info">
+                    <p>Columbia, MD</p>
+                    <p>smulug1244@gmail.com</p>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/samson02/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:smulug1244@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </aside>
 
-    <!-- Education Section -->
-    <section class="education">
-        <h2>Education</h2>
-        <div>
-            <h3>University of Maryland</h3>
-            <p><strong>BS in Information Science</strong>, Minor: Information Risk Management, Ethics, and Privacy</p>
-            <p><strong>GPA:</strong> 3.79 | <strong><a href="https://promise.umd.edu/" target="_blank" style="color: #007BFF; text-decoration: underline;">Maryland Promise Program Scholar</a></strong></p>
-        </div>
-    </section>
+        <!-- RIGHT CONTENT -->
+        <main class="content-area">
+            
+            <!-- Education Section -->
+            <section id="education">
+                <h2 class="section-title">Education</h2>
+                <div class="edu-card">
+                    <div class="edu-info">
+                        <h3>University of Maryland</h3>
+                        <p>BS in Information Science</p>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 5px;">Minor: Information Risk Management, Ethics, and Privacy</p>
+                    </div>
+                    <div class="edu-meta">
+                        <div class="edu-date" style="color: var(--accent-color); font-weight: 700;">Aug 2021 — May 2025</div>
+                        <div class="edu-gpa">GPA: 3.79</div>
+                    </div>
+                </div>
+            </section>
 
-    <!-- Professional Experience Section -->
-    <section class="experience">
-        <h2>Professional Experience</h2>
+            <!-- Experience -->
+            <section id="experience">
+                <h2 class="section-title">Professional History</h2>
+                
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-role">Operations Associate</div>
+                        <div class="exp-date">Jul 2025 — Oct 2025</div>
+                    </div>
+                    <div class="exp-company">FIRST Chesapeake</div>
+                    <ul>
+                        <li>Managed IT asset lifecycle for 50+ staff, reducing downtime and ensuring smooth operations.</li>
+                        <li>Troubleshot IT systems, managed accounts, and streamlined onboarding across Google Workspace & Microsoft 365.</li>
+                        <li>Administered Wix site, improving UX and automating dashboards with Google Sheets/APIs.</li>
+                        <li>Coordinated AV, equipment, and logistics for robotics competitions.</li>
+                    </ul>
+                </div>
 
-        <!-- Operations Associate -->
-        <div class="experience-entry">
-            <h3>Operations Associate</h3>
-            <p><strong>FIRST Chesapeake</strong> | <em>July 2025 – October 2025 </em></p> 
-            <ul>
-                <li>Managed IT assets and provided support that reduced downtime for 50+ staff and volunteers.</li>
-                <li>Troubleshot IT systems, managed accounts/permissions, and streamlined Google Workspace & Microsoft 365 onboarding by 30%</li>
-                <li>Administered Wix site, improving UX and automating dashboards with Google Sheets/APIs, saving 10+ hours monthly</li>
-                <li>Supported robotics competitions by handling AV, logistics, and live troubleshooting for 500+ participants</li>
-                <li>Coordinated cross-functional projects, tracking milestones and implementing process improvements to boost efficiency</li>
-        </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-role">IT Administrative Intern</div>
+                        <div class="exp-date">Jun 2023 — Feb 2025</div>
+                    </div>
+                    <div class="exp-company">US Department of the Interior</div>
+                    <ul>
+                        <li>Supported Government Zero Trust Initiative, ensuring alignment with federal cybersecurity standards.</li>
+                        <li>Conducted system risk assessments and implemented security enhancements to address vulnerabilities.</li>
+                        <li>Drafted and refined security policies and monitored implementation across multiple teams.</li>
+                        <li>Analyzed network infrastructure and contributed to a tailored zero-trust strategy.</li>
+                    </ul>
+                </div>
 
-        <!-- IT Administrative Intern -->
-        <div class="experience-entry">
-            <h3>IT Administrative Intern</h3>
-            <p><strong>US Department of the Interior</strong>, Washington, D.C. | <em>June 2023 – February 2025</em></p>
-            <ul>
-                <li>Assist the Office of the Chief Information Officer (OCIO) in executing the Government Zero Trust Initiative, ensuring compliance with federal cybersecurity policies</li>
-                <li>Conduct risk assessments and provide recommendations to enhance security posture across departments</li>
-                <li>Draft and refine policy documents to support the implementation of Zero Trust principles, tracking progress and compliance</li>
-                <li>Analyze network infrastructure and contribute to a customized zero-trust strategy, improving agency-wide security frameworks</li>
-            </ul>
-        </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-role">Finance Committee Member</div>
+                        <div class="exp-date">Aug 2023 — May 2025</div>
+                    </div>
+                    <div class="exp-company">University of Maryland</div>
+                    <ul>
+                        <li>Oversaw budget allocation from a $1M+ funding pool for student organizations.</li>
+                        <li>Evaluated 20+ financial appeals, applying compliance standards and governance policies.</li>
+                        <li>Educated 400+ student groups on financial regulations.</li>
+                    </ul>
+                </div>
 
-        <!-- Finance Committee Member -->
-        <div class="experience-entry">
-            <h3>Finance Committee Member</h3>
-            <p><strong>University Of Maryland</strong>, College Park, MD | <em>August 2023 – May 2025</em></p>
-            <ul>
-                <li>Oversee budget allocation from a $1M+ funding pool for student organizations, ensuring fair and equitable distribution</li>
-                <li>Evaluate 20+ financial appeals, applying compliance standards and governance policies to ensure transparency</li>
-                <li>Educate 400+ student groups on financial regulations, ensuring responsible fund management</li>
-                <li>Optimized ticketing workflow using ServiceNow, improving issue resolution speed and tracking system efficiency</li>
-            </ul>
-        </div>
+                <div class="exp-card">
+                    <div class="exp-header">
+                        <div class="exp-role">IT Support Technician</div>
+                        <div class="exp-date">Apr 2022 — May 2023</div>
+                    </div>
+                    <div class="exp-company">University of Maryland</div>
+                    <ul>
+                        <li>Provided technical support to faculty, troubleshooting hardware/software issues in smart classrooms.</li>
+                        <li>Managed and maintained an inventory of 500+ technology assets, reducing downtime by 30%.</li>
+                        <li>Optimized ticketing workflow using ServiceNow, improving issue resolution speed.</li>
+                    </ul>
+                </div>
+            </section>
 
-        <!-- IT Support Technician -->
-        <div class="experience-entry">
-            <h3>Information Technology Support Technician</h3>
-            <p><strong>University of Maryland</strong>, College Park, MD | <em>April 2022 – May 2023</em></p>
-            <ul>
-                <li>Provided technical support to faculty, troubleshooting and resolving hardware/software issues in smart classrooms</li>
-                <li>Managed and maintained an inventory of 500+ technology assets, reducing downtime by 30% through proactive maintenance</li>
-                <li>Optimized ticketing workflow using ServiceNow, improving issue resolution speed and tracking system efficiency</li>
-            </ul>
-        </div>
-    </section>
+            <!-- Projects -->
+            <section id="projects">
+                <h2 class="section-title">Selected Projects</h2>
+                
+                <div class="project-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-chart-pie"></i></div>
+                        <h3>Gun Violence Trends</h3>
+                        <p>Interactive Tableau story visualizing firearm-related deaths and injuries by state, year, and incident type.</p>
+                        <a href="https://docs.google.com/presentation/d/1BYS1AM-IOWJAVMZczngNyz3E_PADEnry/edit?usp=sharing" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
 
-    <!-- Skills Section (Moved to Bottom) -->
-    <section class="skills">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <ul>
-                <li><strong>Programming & Development:</strong> Python, SQL, JavaScript, HTML, CSS, R</li>
-                <li><strong>Data Analysis & Visualization:</strong> Power BI, Tableau, Microsoft Excel</li>
-                <li><strong>Systems & Administration:</strong> Google Workspace (Administrator), Microsoft 365 (Administrator), Microsoft Power Platform, SharePoint, ServiceNow</li>
-                <li><strong>Productivity, Collaboration & Design Tools:</strong> Microsoft Office Suite, Microsoft Teams, Slack, Adobe Creative Suite, Canva, Figma, Trello, Miro, Zoom, Wix</li>
-                <li><strong>Operating Systems:</strong> Windows, macOS, ChromeOS, iOS, Android</li>
-            </ul>
-        </div>
-    </section>
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-cloud-sun"></i></div>
+                        <h3>Weather Forecast App</h3>
+                        <p>Full-stack Node.js application providing real-time 5-day forecasts with geolocation tracking.</p>
+                        <a href="https://github.com/Samson1020/Weather-Forecast-Web-Application" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
 
-    <!-- Clipboard Copy Script -->
-    <script>
-        document.getElementById("copy-email").addEventListener("click", function () {
-            const email = "smulug1244@gmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                alert("Email copied to clipboard!");
-            }).catch((err) => {
-                console.error("Failed to copy email: ", err);
-            });
-        });
-    </script>
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-database"></i></div>
+                        <h3>Hate Crime DB</h3>
+                        <p>MySQL database designed to analyze crime trends using complex SQL queries and joins.</p>
+                        <a href="https://drive.google.com/file/d/1yhOfWa_HHx_YFxlRgQFjaMwKj0WftcEg/view?usp=sharing" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-archive"></i></div>
+                        <h3>Archive Management</h3>
+                        <p>Taxonomy system and automated text parser for large audio-visual archives.</p>
+                        <a href="https://docs.google.com/document/d/1xZ7_I-TTFbuqzbb0enhnd-U64RxYtD10/edit?usp=sharing" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>iPhone 20 Concept</h3>
+                        <p>User research and prototyping for a sustainable, modular smartphone concept using Design Thinking.</p>
+                        <a href="https://drive.google.com/file/d/10Oig55GX8p9_8-AW1v-s7VIW-oatPiJh/view?usp=sharing" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card">
+                        <div class="project-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Personal Portfolio</h3>
+                        <p>Responsive website with HTML/CSS/JS animations, hosted on Cloudflare with a custom domain.</p>
+                        <a href="https://github.com/Samson1020/Samson_Personal_Site" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section id="skills">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-wrapper">
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">SQL / MySQL</span>
+                    <span class="skill-pill">JavaScript</span>
+                    <span class="skill-pill">HTML & CSS</span>
+                    <span class="skill-pill">Node.js</span>
+                    <span class="skill-pill">R Language</span>
+                    <span class="skill-pill">Tableau</span>
+                    <span class="skill-pill">Power BI</span>
+                    <span class="skill-pill">Excel (Advanced)</span>
+                    <span class="skill-pill">Google Workspace</span>
+                    <span class="skill-pill">Microsoft 365</span>
+                    <span class="skill-pill">ServiceNow</span>
+                    <span class="skill-pill">Figma</span>
+                    <span class="skill-pill">Git</span>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
 </body>
 </html>
