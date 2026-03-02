@@ -4,381 +4,335 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Samson Mulugeta</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
 <style>
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  :root {
-    --bg: #080b12;
-    --surface: #0d1117;
-    --border: rgba(48, 100, 220, 0.18);
-    --blue: #4080ff;
-    --blue-light: #6fa3ff;
-    --text: #d4ddf0;
-    --muted: #5a6a88;
-    --muted2: #8898b8;
-  }
+:root {
+  --bg: #080b12;
+  --border: rgba(48, 100, 220, 0.18);
+  --blue: #4080ff;
+  --blue-light: #6fa3ff;
+  --text: #e6edf7;
+  --muted: #5a6a88;
+  --muted2: #9aa7c7;
+}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Source Serif 4', serif;
-    font-weight: 300;
-    min-height: 100vh;
-  }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  min-height: 100vh;
+}
 
-  a { color: inherit; text-decoration: none; }
+a { color: inherit; text-decoration: none; }
 
-  /* Layout */
-  .page {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 5rem 2rem 6rem;
-  }
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 5rem 2rem 6rem;
+}
 
-  /* Header */
-  header {
-    margin-bottom: 4rem;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--border);
-  }
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-  .name {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.1rem;
-    font-weight: 600;
-    color: #fff;
-    letter-spacing: -0.01em;
-  }
-  .name span { color: var(--blue); }
+header {
+  margin-bottom: 4rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
 
-  .download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.55rem 1.2rem;
-    font-family: 'Source Serif 4', serif;
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    color: var(--blue-light);
-    border: 1px solid rgba(64,128,255,0.35);
-    border-radius: 3px;
-    background: rgba(64,128,255,0.06);
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-  .download-btn:hover {
-    background: rgba(64,128,255,0.14);
-    border-color: var(--blue);
-    color: #fff;
-  }
-  .download-btn svg { width: 13px; height: 13px; }
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
 
-  .title-line {
-    margin-top: 0.6rem;
-    font-family: 'Source Serif 4', serif;
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--muted2);
-    letter-spacing: 0.01em;
-  }
+.name {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
 
-  /* Contact row */
-  .contact-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem 1.8rem;
-    margin-top: 1.4rem;
-  }
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-family: 'Source Serif 4', serif;
-    font-size: 0.82rem;
-    color: var(--muted2);
-    transition: color 0.2s;
-  }
-  .contact-item:hover { color: var(--blue-light); }
-  .contact-item .dot {
-    width: 3px; height: 3px;
-    border-radius: 50%;
-    background: var(--blue);
-    opacity: 0.6;
-    flex-shrink: 0;
-  }
+.name span { color: var(--blue); }
 
-  /* Sections */
-  .section {
-    margin-bottom: 3.5rem;
-  }
+.title-line {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--muted2);
+}
 
-  .section-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .section-heading::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 2rem;
+  margin-top: 1.5rem;
+}
 
-  /* Experience items */
-  .exp-item {
-    padding: 1.6rem 0;
-    border-bottom: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 1.5rem;
-  }
-  .exp-item:first-of-type { border-top: 1px solid var(--border); }
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted2);
+  transition: color 0.2s;
+}
 
-  .exp-left { padding-top: 0.1rem; }
-  .exp-company {
-    font-family: 'Source Serif 4', serif;
-    font-size: 0.78rem;
-    color: var(--blue-light);
-    margin-bottom: 0.3rem;
-    font-weight: 400;
-  }
-  .exp-date {
-    font-family: 'Source Serif 4', serif;
-    font-size: 0.72rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
+.contact-item:hover { color: var(--blue-light); }
 
-  .exp-role {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
-    font-size: 1rem;
-    color: #fff;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.01em;
-  }
-  .exp-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.38rem;
-  }
-  .exp-bullets li {
-    font-size: 0.835rem;
-    line-height: 1.65;
-    color: var(--muted2);
-    padding-left: 1rem;
-    position: relative;
-  }
-  .exp-bullets li::before {
-    content: '–';
-    position: absolute;
-    left: 0;
-    color: var(--blue);
-    opacity: 0.5;
-  }
+.contact-item .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--blue);
+  opacity: 0.7;
+}
 
-  /* Education */
-  .edu-item {
-    padding: 1.6rem 0;
-    border-bottom: 1px solid var(--border);
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 1.5rem;
-  }
-  .edu-item:first-of-type { border-top: 1px solid var(--border); }
+.section { margin-bottom: 3.5rem; }
 
-  .edu-school-name {
-    font-family: 'Source Serif 4', serif;
-    font-size: 0.78rem;
-    color: var(--blue-light);
-    margin-bottom: 0.3rem;
-  }
-  .edu-years {
-    font-family: 'Source Serif 4', serif;
-    font-size: 0.72rem;
-    color: var(--muted);
-  }
-  .edu-degree {
-    font-family: 'Playfair Display', serif;
-    font-weight: 500;
-    font-size: 1rem;
-    color: #fff;
-    margin-bottom: 0.4rem;
-  }
-  .edu-minor {
-    font-size: 0.82rem;
-    color: var(--muted2);
-  }
+.section-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
 
-  /* Scroll reveal */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 0.55s ease, transform 0.55s ease;
-  }
-  .fade-in.show { opacity: 1; transform: none; }
+.section-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
 
-  @media (max-width: 600px) {
-    .header-top { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
-    .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.3rem; }
-    .exp-left, .edu-left { display: flex; gap: 1rem; align-items: baseline; }
-  }
+.about-text {
+  font-size: 0.95rem;
+  line-height: 1.85;
+  color: var(--muted2);
+  max-width: 720px;
+}
+
+.exp-item, .edu-item {
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 2rem;
+}
+
+.exp-item:first-of-type,
+.edu-item:first-of-type {
+  border-top: 1px solid var(--border);
+}
+
+.exp-company, .edu-school-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--blue-light);
+  margin-bottom: 0.4rem;
+}
+
+.exp-date, .edu-years {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.exp-role, .edu-degree {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.edu-minor {
+  font-size: 0.85rem;
+  color: var(--muted2);
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.exp-bullets li {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--muted2);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.exp-bullets li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  opacity: 0.6;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 600px) {
+  .header-top { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+  .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.6rem; }
+}
 </style>
 </head>
 <body>
+
 <div class="page">
 
-  <!-- Header -->
-  <header class="fade-in">
-    <div class="header-top">
-      <div>
-        <div class="name">Samson <span>Mulugeta</span></div>
-        <div class="title-line">Junior Modern Engineer · Accenture · Arlington, VA</div>
-      </div>
-  
-      </a>
-    </div>
-    <div class="contact-row">
-      <a class="contact-item" href="mailto:smulug1244@gmail.com">
-        <span class="dot"></span>smulug1244@gmail.com
-      </a>
-      <a class="contact-item" href="tel:3017691920">
-        <span class="dot"></span>301-769-1920
-      </a>
-      <a class="contact-item" href="https://linkedin.com/in/samson02/" target="_blank">
-        <span class="dot"></span>linkedin.com/in/samson02
-      </a>
-    </div>
-  </header>
-
-  <!-- Experience -->
-  <div class="section fade-in">
-    <div class="section-heading">Experience</div>
-
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-company">Accenture</div>
-        <div class="exp-date">Mar 2026 – Present<br>Arlington, VA</div>
-      </div>
-      <div>
-        <div class="exp-role">Junior Modern Engineer</div>
-        <ul class="exp-bullets">
-          
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-company">FIRST Chesapeake</div>
-        <div class="exp-date">Jul – Oct 2025<br>Savage, MD</div>
-      </div>
-      <div>
-        <div class="exp-role">Operations Associate</div>
-        <ul class="exp-bullets">
-          <li>Managed IT asset lifecycle from deployment to disposal, reducing downtime</li>
-          <li>Enhanced Wix website with database search API integration and automated dashboards</li>
-          <li>Implemented Google Sheets API for auto-populated charts and real-time data sync</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-company">US Dept. of Interior</div>
-        <div class="exp-date">Jun 2023 – Feb 2025<br>Washington, DC</div>
-      </div>
-      <div>
-        <div class="exp-role">IT Administrative Intern</div>
-        <ul class="exp-bullets">
-          <li>Supported the Government Zero Trust Initiative, ensuring alignment with federal cybersecurity standards</li>
-          <li>Conducted system risk assessments and implemented security enhancements</li>
-          <li>Assisted in analyzing network infrastructure and contributed to a tailored zero-trust strategy</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-company">Univ. of Maryland</div>
-        <div class="exp-date">Aug 2023 – May 2025<br>College Park, MD</div>
-      </div>
-      <div>
-        <div class="exp-role">Finance Committee Member</div>
-        <ul class="exp-bullets">
-          <li>Oversaw budget allocation from a $1M+ funding pool for student organizations</li>
-          <li>Evaluated 20+ financial appeals applying compliance and governance standards</li>
-          <li>Educated 400+ student groups on financial regulations for a 35,000+ student body</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-left">
-        <div class="exp-company">Univ. of Maryland</div>
-        <div class="exp-date">Apr 2022 – May 2023<br>College Park, MD</div>
-      </div>
-      <div>
-        <div class="exp-role">Classroom IT Support Technician</div>
-        <ul class="exp-bullets">
-          <li>Resolved smart classroom AV and system issues with minimal disruption to academic operations</li>
-          <li>Managed 500+ technology asset inventory, reducing downtime 30% through proactive maintenance</li>
-          <li>Optimized ticketing workflow in ServiceNow, improving issue resolution speed</li>
-        </ul>
-      </div>
+<header class="fade-in">
+  <div class="header-top">
+    <div>
+      <div class="name">Samson <span>Mulugeta</span></div>
+      <div class="title-line">Junior Modern Engineer · Accenture · Arlington, VA</div>
     </div>
   </div>
 
-  <!-- Education -->
-  <div class="section fade-in">
-    <div class="section-heading">Education</div>
-    <div class="edu-item">
-      <div class="edu-left">
-        <div class="edu-school-name">Univ. of Maryland</div>
-        <div class="edu-years">2021 – 2025</div>
-      </div>
-      <div>
-        <div class="edu-degree">B.S. in Information Science</div>
-        <div class="edu-minor">Minor: Information Risk Management, Ethics & Policy</div>
-      </div>
+  <div class="contact-row">
+    <a class="contact-item" href="mailto:smulug1244@gmail.com"><span class="dot"></span>smulug1244@gmail.com</a>
+    <a class="contact-item" href="tel:3017691920"><span class="dot"></span>301-769-1920</a>
+    <a class="contact-item" href="https://linkedin.com/in/samson02/" target="_blank"><span class="dot"></span>linkedin.com/in/samson02</a>
+  </div>
+</header>
+
+<div class="section fade-in">
+  <div class="section-heading">About</div>
+  <div class="about-text">
+    Hi, I’m Samson — a Junior Modern Engineer at Accenture with a background in information science and cybersecurity. I specialize in building AI-driven systems, designing multi-agent workflows, and integrating enterprise data into production-grade LLM applications.
+    <br><br>
+    With experience spanning federal IT, zero trust security initiatives, and enterprise AI solutions, I enjoy solving complex problems at the intersection of technology, data, and business. I’m passionate about building scalable, secure systems that reduce manual effort and create measurable impact.
+  </div>
+</div>
+
+<div class="section fade-in">
+  <div class="section-heading">Experience</div>
+
+  <!-- Current Role (NO BULLETS) -->
+  <div class="exp-item">
+    <div>
+      <div class="exp-company">Accenture</div>
+      <div class="exp-date">Mar 2026 – Present · Arlington, VA</div>
+    </div>
+    <div>
+      <div class="exp-role">Junior Modern Engineer</div>
+    </div>
+  </div>
+
+  <!-- FIRST Chesapeake -->
+  <div class="exp-item">
+    <div>
+      <div class="exp-company">FIRST Chesapeake</div>
+      <div class="exp-date">Jul – Oct 2025 · Savage, MD</div>
+    </div>
+    <div>
+      <div class="exp-role">Operations Associate</div>
+      <ul class="exp-bullets">
+        <li>Managed IT asset lifecycle from deployment to disposal, reducing downtime</li>
+        <li>Enhanced Wix website with database search API integration and automated dashboards</li>
+        <li>Implemented Google Sheets API for real-time reporting automation</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- DOI -->
+  <div class="exp-item">
+    <div>
+      <div class="exp-company">US Department of the Interior</div>
+      <div class="exp-date">Jun 2023 – Feb 2025 · Washington, DC</div>
+    </div>
+    <div>
+      <div class="exp-role">IT Administrative Intern</div>
+      <ul class="exp-bullets">
+        <li>Supported the Government Zero Trust Initiative</li>
+        <li>Conducted system risk assessments and implemented security enhancements</li>
+        <li>Contributed to tailored zero-trust architecture strategy</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- UMD Finance -->
+  <div class="exp-item">
+    <div>
+      <div class="exp-company">University of Maryland</div>
+      <div class="exp-date">Aug 2023 – May 2025 · College Park, MD</div>
+    </div>
+    <div>
+      <div class="exp-role">Finance Committee Member</div>
+      <ul class="exp-bullets">
+        <li>Oversaw allocation of $1M+ student funding pool</li>
+        <li>Evaluated financial appeals under governance standards</li>
+        <li>Educated 400+ student groups on financial policy compliance</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Classroom IT -->
+  <div class="exp-item">
+    <div>
+      <div class="exp-company">University of Maryland</div>
+      <div class="exp-date">Apr 2022 – May 2023 · College Park, MD</div>
+    </div>
+    <div>
+      <div class="exp-role">Classroom IT Support Technician</div>
+      <ul class="exp-bullets">
+        <li>Resolved smart classroom AV and system issues</li>
+        <li>Managed 500+ asset inventory reducing downtime 30%</li>
+        <li>Optimized ServiceNow ticketing workflow</li>
+      </ul>
     </div>
   </div>
 
 </div>
 
-<script>
-  // Fade in on scroll
-  const items = document.querySelectorAll('.fade-in');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); }
-    });
-  }, { threshold: 0.07 });
-  items.forEach(el => obs.observe(el));
+<div class="section fade-in">
+  <div class="section-heading">Education</div>
+  <div class="edu-item">
+    <div>
+      <div class="edu-school-name">University of Maryland</div>
+      <div class="edu-years">2021 – 2025</div>
+    </div>
+    <div>
+      <div class="edu-degree">B.S. in Information Science</div>
+      <div class="edu-minor">Minor: Information Risk Management, Ethics & Policy</div>
+    </div>
+  </div>
+</div>
 
-  // Download: open the uploaded PDF if available, otherwise print
-  function downloadResume() {
-    const link = document.createElement('a');
-    link.href = 'Samson_Mulugeta_FlowCV_Resume_2026-03-02.pdf';
-    link.download = 'Samson_Mulugeta_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }
+</div>
+
+<script>
+const items = document.querySelectorAll('.fade-in');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.07 });
+
+items.forEach(el => obs.observe(el));
 </script>
+
 </body>
 </html>
