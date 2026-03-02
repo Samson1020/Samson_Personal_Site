@@ -1,523 +1,388 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Samson Mulugeta - Information Science Portfolio">
-    <title>Samson Mulugeta</title>
-    
-    <!-- Fonts: Playfair Display for Headings, Lato for Body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samson Mulugeta</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <style>
-        /* --- CSS VARIABLES --- */
-        :root {
-             /* NEW THEME: Midnight Blue & Electric Cyan */
-            
-            /* Sidebar: Deep Black → Navy Gradient */
-            ---sidebar-bg-start: #020617; /* Near-black navy */
-            --sidebar-bg-end: #0f172a;   /* Dark blue slate */
-            --sidebar-text: #e2e8f0;     /* Light cool gray */
+  :root {
+    --bg: #080b12;
+    --surface: #0d1117;
+    --border: rgba(48, 100, 220, 0.18);
+    --blue: #4080ff;
+    --blue-light: #6fa3ff;
+    --text: #d4ddf0;
+    --muted: #5a6a88;
+    --muted2: #8898b8;
+  }
 
-            /* Main Content: Dark Blue */
-            --bg-color: #0f172a;         /* Deep slate blue */
-            --bg-card: #1e293b;          /* Slate 800 */
-            --text-primary: #f1f5f9;  /* Slate 100 */
-            --text-secondary: #cbd5e1; /* Slate 300 */
-            
-            /* Accent: Electric Cyan */
-            --accent-color: #22d3ee;     /* Cyan 400 */
-            --accent-hover: #06b6d4;     /* Cyan 500 */
-            
-            /* Tag Colors */
-            --tag-bg: #083344;           /* Deep teal 900 */
-            --tag-text: #67e8f9;         /* Cyan 300 */
-            --tag-border: #0891b2;       /* Cyan 700 */
-        }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
 
-        /* --- RESET --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+  a { color: inherit; text-decoration: none; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: 'Lato', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+  /* Layout */
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 5rem 2rem 6rem;
+  }
 
-        /* --- MAIN LAYOUT --- */
-        .main-layout {
-            display: grid;
-            grid-template-columns: 350px 1fr; /* Fixed Sidebar width */
-            min-height: 100vh;
-        }
+  /* Header */
+  header {
+    margin-bottom: 4rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+  .name span { color: var(--blue); }
 
-        /* --- LEFT SIDEBAR --- */
-        .sidebar {
-            background: linear-gradient(180deg, var(--sidebar-bg-start) 0%, var(--sidebar-bg-end) 100%);
-            color: var(--sidebar-text);
-            padding: 4rem 2.5rem;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-right: 1px solid rgba(255,255,255,0.05);
-            z-index: 10;
-        }
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.2rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--blue-light);
+    border: 1px solid rgba(64,128,255,0.35);
+    border-radius: 3px;
+    background: rgba(64,128,255,0.06);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .download-btn:hover {
+    background: rgba(64,128,255,0.14);
+    border-color: var(--blue);
+    color: #fff;
+  }
+  .download-btn svg { width: 13px; height: 13px; }
 
-        .brand h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
+  .title-line {
+    margin-top: 0.6rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--muted2);
+    letter-spacing: 0.01em;
+  }
 
-        .brand p {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            margin-bottom: 3rem;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
+  /* Contact row */
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.8rem;
+    margin-top: 1.4rem;
+  }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.82rem;
+    color: var(--muted2);
+    transition: color 0.2s;
+  }
+  .contact-item:hover { color: var(--blue-light); }
+  .contact-item .dot {
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--blue);
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
 
-        /* Navigation */
-        .nav-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+  /* Sections */
+  .section {
+    margin-bottom: 3.5rem;
+  }
 
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 12px 20px;
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: 700;
-            border: 1px solid transparent;
-        }
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
 
-        .nav-link:hover, .nav-link.active {
-            background: rgba(52, 211, 153, 0.1); /* Green tint */
-            color: var(--accent-color);
-            transform: translateX(5px);
-            border-color: rgba(52, 211, 153, 0.2);
-        }
+  /* Experience items */
+  .exp-item {
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1.5rem;
+  }
+  .exp-item:first-of-type { border-top: 1px solid var(--border); }
 
-        .nav-link i { width: 20px; text-align: center; }
+  .exp-left { padding-top: 0.1rem; }
+  .exp-company {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.78rem;
+    color: var(--blue-light);
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+  }
+  .exp-date {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
 
-        .sidebar-footer { margin-top: 2rem; }
+  .exp-role {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.38rem;
+  }
+  .exp-bullets li {
+    font-size: 0.835rem;
+    line-height: 1.65;
+    color: var(--muted2);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+    opacity: 0.5;
+  }
 
-        .contact-info {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 1.5rem;
-        }
+  /* Education */
+  .edu-item {
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1.5rem;
+  }
+  .edu-item:first-of-type { border-top: 1px solid var(--border); }
 
-        .social-icons { display: flex; gap: 15px; }
-        
-        .social-btn {
-            width: 40px; height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .social-btn:hover { 
-            background: var(--accent-color); 
-            color: var(--sidebar-bg-start); 
-            border-color: var(--accent-color);
-            transform: scale(1.1); 
-        }
+  .edu-school-name {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.78rem;
+    color: var(--blue-light);
+    margin-bottom: 0.3rem;
+  }
+  .edu-years {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+  .edu-minor {
+    font-size: 0.82rem;
+    color: var(--muted2);
+  }
 
-        /* --- RIGHT CONTENT --- */
-        .content-area {
-            padding: 5rem 10%;
-            background-color: var(--bg-color);
-        }
+  /* Scroll reveal */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .fade-in.show { opacity: 1; transform: none; }
 
-        section { margin-bottom: 6rem; scroll-margin-top: 4rem; }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--text-primary);
-            margin-bottom: 2.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 40px;
-            height: 4px;
-            background: var(--accent-color);
-            border-radius: 2px;
-        }
-
-        /* --- EDUCATION CARD --- */
-        .edu-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 2rem;
-            border: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-        
-        .edu-info h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff; }
-        .edu-info p { color: var(--text-secondary); font-size: 1.1rem; }
-        .edu-meta { text-align: right; }
-        .edu-gpa { 
-            display: inline-block; 
-            background: var(--tag-bg); 
-            color: var(--tag-text); 
-            padding: 5px 15px; 
-            border-radius: 20px; 
-            font-weight: 700;
-            margin-top: 10px;
-            border: 1px solid var(--tag-border);
-        }
-
-        /* --- EXPERIENCE CARDS --- */
-        .exp-card {
-            background: var(--bg-card);
-            border-left: 4px solid var(--accent-color);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 0 12px 12px 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: 0.3s;
-        }
-
-        .exp-card:hover {
-            transform: translateX(5px);
-            background: #3d4c63; /* Slightly lighter slate on hover */
-        }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .exp-role { font-size: 1.3rem; font-weight: 700; color: #fff; }
-        .exp-date { font-size: 0.9rem; color: var(--accent-color); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .exp-company { font-size: 1rem; color: #94a3b8; margin-bottom: 1rem; font-style: italic; }
-
-        .exp-card ul { list-style: none; padding-left: 0.5rem; }
-        .exp-card li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.95rem; }
-        .exp-card li::before { content: '▹'; position: absolute; left: 0; color: var(--accent-color); }
-
-        /* --- PROJECT GRID --- */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .project-icon {
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        .project-card h3 { font-size: 1.2rem; margin-bottom: 0.8rem; color: #fff; }
-        .project-card p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem; flex-grow: 1; }
-
-        .project-link {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 700;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: auto;
-            transition: 0.2s;
-        }
-        .project-link:hover { color: var(--accent-color); gap: 12px; }
-
-        /* --- SKILLS (PILLS) --- */
-        .skills-wrapper { display: flex; flex-wrap: wrap; gap: 0.8rem; }
-
-        .skill-pill {
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            transition: 0.3s;
-            background: var(--tag-bg);
-            color: var(--tag-text);
-            border: 1px solid var(--tag-border);
-        }
-
-        .skill-pill:hover { 
-            transform: translateY(-2px); 
-            box-shadow: 0 4px 12px rgba(52, 211, 153, 0.2);
-        }
-
-        /* --- MOBILE --- */
-        @media (max-width: 900px) {
-            .main-layout { grid-template-columns: 1fr; }
-            
-            .sidebar {
-                height: auto;
-                position: relative;
-                padding: 3rem 1.5rem;
-            }
-            
-            .nav-menu { flex-direction: row; flex-wrap: wrap; }
-            .content-area { padding: 3rem 1.5rem; }
-            
-            .edu-meta { text-align: left; margin-top: 1rem; }
-            .edu-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-        }
-    </style>
+  @media (max-width: 600px) {
+    .header-top { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+    .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    .exp-left, .edu-left { display: flex; gap: 1rem; align-items: baseline; }
+  }
+</style>
 </head>
 <body>
+<div class="page">
 
-    <div class="main-layout">
-        
-        <!-- LEFT SIDEBAR -->
-        <aside class="sidebar">
-            <div>
-                <div class="brand">
-                    <h1>Samson<br>Mulugeta</h1>
-                    <p>Information Science Graduate</p>
-                </div>
-                
-                <nav class="nav-menu">
-                    <a href="#education" class="nav-link">
-                        <i class="fas fa-graduation-cap"></i> Education
-                    </a>
-                    <a href="#experience" class="nav-link">
-                        <i class="fas fa-briefcase"></i> Experience
-                    </a>
-                    <a href="#projects" class="nav-link">
-                        <i class="fas fa-code-branch"></i> Projects
-                    </a>
-                    <a href="#skills" class="nav-link">
-                        <i class="fas fa-layer-group"></i> Skills
-                    </a>
-                    <a href="SamsonResumeWebsite.pdf" target="_blank" class="nav-link">
-                        <i class="fas fa-file-pdf"></i> Resume
-                    </a>
-                </nav>
-            </div>
+  <!-- Header -->
+  <header class="fade-in">
+    <div class="header-top">
+      <div>
+        <div class="name">Samson <span>Mulugeta</span></div>
+        <div class="title-line">Junior Modern Engineer · Accenture · Arlington, VA</div>
+      </div>
+      <a class="download-btn" href="#" onclick="downloadResume(); return false;">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M8 2v8m0 0l-3-3m3 3l3-3M2 12h12"/>
+        </svg>
+        Resume
+      </a>
+    </div>
+    <div class="contact-row">
+      <a class="contact-item" href="mailto:smulug1244@gmail.com">
+        <span class="dot"></span>smulug1244@gmail.com
+      </a>
+      <a class="contact-item" href="tel:3017691920">
+        <span class="dot"></span>301-769-1920
+      </a>
+      <a class="contact-item" href="https://linkedin.com/in/samson02/" target="_blank">
+        <span class="dot"></span>linkedin.com/in/samson02
+      </a>
+    </div>
+  </header>
 
-            <div class="sidebar-footer">
-                <div class="contact-info">
-                    <p>Columbia, MD</p>
-                    <p>smulug1244@gmail.com</p>
-                </div>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/samson02/" target="_blank" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:smulug1244@gmail.com" class="social-btn"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </aside>
+  <!-- Experience -->
+  <div class="section fade-in">
+    <div class="section-heading">Experience</div>
 
-        <!-- RIGHT CONTENT -->
-        <main class="content-area">
-            
-            <!-- Education Section -->
-            <section id="education">
-                <h2 class="section-title">Education</h2>
-                <div class="edu-card">
-                    <div class="edu-info">
-                        <h3>University of Maryland</h3>
-                        <p>BS in Information Science</p>
-                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 5px;">Minor: Information Risk Management, Ethics, and Privacy</p>
-                    </div>
-                    <div class="edu-meta">
-                        <div class="edu-date" style="color: var(--accent-color); font-weight: 700;">Aug 2021 — May 2025</div>
-                        <div class="edu-gpa">GPA: 3.79</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Experience -->
-            <section id="experience">
-                <h2 class="section-title">Professional History</h2>
-                
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <div class="exp-role">Operations Associate</div>
-                        <div class="exp-date">Jul 2025 — Oct 2025</div>
-                    </div>
-                    <div class="exp-company">FIRST Chesapeake</div>
-                    <ul>
-                        <li>Managed IT asset lifecycle for 50+ staff, reducing downtime and ensuring smooth operations.</li>
-                        <li>Troubleshot IT systems, managed accounts, and streamlined onboarding across Google Workspace & Microsoft 365.</li>
-                        <li>Administered Wix site, improving UX and automating dashboards with Google Sheets/APIs.</li>
-                        <li>Coordinated AV, equipment, and logistics for robotics competitions.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <div class="exp-role">IT Administrative Intern</div>
-                        <div class="exp-date">Jun 2023 — Feb 2025</div>
-                    </div>
-                    <div class="exp-company">US Department of the Interior</div>
-                    <ul>
-                        <li>Supported Government Zero Trust Initiative, ensuring alignment with federal cybersecurity standards.</li>
-                        <li>Conducted system risk assessments and implemented security enhancements to address vulnerabilities.</li>
-                        <li>Drafted and refined security policies and monitored implementation across multiple teams.</li>
-                        <li>Analyzed network infrastructure and contributed to a tailored zero-trust strategy.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <div class="exp-role">Finance Committee Member</div>
-                        <div class="exp-date">Aug 2023 — May 2025</div>
-                    </div>
-                    <div class="exp-company">University of Maryland</div>
-                    <ul>
-                        <li>Oversaw budget allocation from a $1M+ funding pool for student organizations.</li>
-                        <li>Evaluated 20+ financial appeals, applying compliance standards and governance policies.</li>
-                        <li>Educated 400+ student groups on financial regulations.</li>
-                    </ul>
-                </div>
-
-                <div class="exp-card">
-                    <div class="exp-header">
-                        <div class="exp-role">IT Support Technician</div>
-                        <div class="exp-date">Apr 2022 — May 2023</div>
-                    </div>
-                    <div class="exp-company">University of Maryland</div>
-                    <ul>
-                        <li>Provided technical support to faculty, troubleshooting hardware/software issues in smart classrooms.</li>
-                        <li>Managed and maintained an inventory of 500+ technology assets, reducing downtime by 30%.</li>
-                        <li>Optimized ticketing workflow using ServiceNow, improving issue resolution speed.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Projects -->
-            <section id="projects">
-                <h2 class="section-title">Selected Projects</h2>
-                
-                <div class="project-grid">
-                    <!-- Project 1 -->
-                    <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-chart-pie"></i></div>
-                        <h3>Gun Violence Trends</h3>
-                        <p>Interactive Tableau story visualizing firearm-related deaths and injuries by state, year, and incident type.</p>
-                        <a href="https://docs.google.com/presentation/d/1BYS1AM-IOWJAVMZczngNyz3E_PADEnry/edit?usp=sharing" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-cloud-sun"></i></div>
-                        <h3>Weather Forecast App</h3>
-                        <p>Full-stack Node.js application providing real-time 5-day forecasts with geolocation tracking.</p>
-                        <a href="https://github.com/Samson1020/Weather-Forecast-Web-Application" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-database"></i></div>
-                        <h3>Hate Crime DB</h3>
-                        <p>MySQL database designed to analyze crime trends using complex SQL queries and joins.</p>
-                        <a href="https://drive.google.com/file/d/1yhOfWa_HHx_YFxlRgQFjaMwKj0WftcEg/view?usp=sharing" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-archive"></i></div>
-                        <h3>Archive Management</h3>
-                        <p>Taxonomy system and automated text parser for large audio-visual archives.</p>
-                        <a href="https://docs.google.com/document/d/1xZ7_I-TTFbuqzbb0enhnd-U64RxYtD10/edit?usp=sharing" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Project 5 -->
-                    <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
-                        <h3>iPhone 20 Concept</h3>
-                        <p>User research and prototyping for a sustainable, modular smartphone concept using Design Thinking.</p>
-                        <a href="https://drive.google.com/file/d/10Oig55GX8p9_8-AW1v-s7VIW-oatPiJh/view?usp=sharing" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-
-                    <!-- Project 6 -->
-                    <div class="project-card">
-                        <div class="project-icon"><i class="fas fa-laptop-code"></i></div>
-                        <h3>Personal Portfolio</h3>
-                        <p>Responsive website with HTML/CSS/JS animations, hosted on Cloudflare with a custom domain.</p>
-                        <a href="https://github.com/Samson1020/Samson_Personal_Site" target="_blank" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Skills -->
-            <section id="skills">
-                <h2 class="section-title">Skills</h2>
-                <div class="skills-wrapper">
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">SQL / MySQL</span>
-                    <span class="skill-pill">JavaScript</span>
-                    <span class="skill-pill">HTML & CSS</span>
-                    <span class="skill-pill">Node.js</span>
-                    <span class="skill-pill">R Language</span>
-                    <span class="skill-pill">Tableau</span>
-                    <span class="skill-pill">Power BI</span>
-                    <span class="skill-pill">Excel (Advanced)</span>
-                    <span class="skill-pill">Google Workspace</span>
-                    <span class="skill-pill">Microsoft 365</span>
-                    <span class="skill-pill">ServiceNow</span>
-                    <span class="skill-pill">Figma</span>
-                    <span class="skill-pill">Git</span>
-                </div>
-            </section>
-
-        </main>
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-company">Accenture</div>
+        <div class="exp-date">Mar 2026 – Present<br>Arlington, VA</div>
+      </div>
+      <div>
+        <div class="exp-role">Junior Modern Engineer</div>
+        <ul class="exp-bullets">
+          
+        </ul>
+      </div>
     </div>
 
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-company">FIRST Chesapeake</div>
+        <div class="exp-date">Jul – Oct 2025<br>Savage, MD</div>
+      </div>
+      <div>
+        <div class="exp-role">Operations Associate</div>
+        <ul class="exp-bullets">
+          <li>Managed IT asset lifecycle from deployment to disposal, reducing downtime</li>
+          <li>Enhanced Wix website with database search API integration and automated dashboards</li>
+          <li>Implemented Google Sheets API for auto-populated charts and real-time data sync</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-company">US Dept. of Interior</div>
+        <div class="exp-date">Jun 2023 – Feb 2025<br>Washington, DC</div>
+      </div>
+      <div>
+        <div class="exp-role">IT Administrative Intern</div>
+        <ul class="exp-bullets">
+          <li>Supported the Government Zero Trust Initiative, ensuring alignment with federal cybersecurity standards</li>
+          <li>Conducted system risk assessments and implemented security enhancements</li>
+          <li>Assisted in analyzing network infrastructure and contributed to a tailored zero-trust strategy</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-company">Univ. of Maryland</div>
+        <div class="exp-date">Aug 2023 – May 2025<br>College Park, MD</div>
+      </div>
+      <div>
+        <div class="exp-role">Finance Committee Member</div>
+        <ul class="exp-bullets">
+          <li>Oversaw budget allocation from a $1M+ funding pool for student organizations</li>
+          <li>Evaluated 20+ financial appeals applying compliance and governance standards</li>
+          <li>Educated 400+ student groups on financial regulations for a 35,000+ student body</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-left">
+        <div class="exp-company">Univ. of Maryland</div>
+        <div class="exp-date">Apr 2022 – May 2023<br>College Park, MD</div>
+      </div>
+      <div>
+        <div class="exp-role">Classroom IT Support Technician</div>
+        <ul class="exp-bullets">
+          <li>Resolved smart classroom AV and system issues with minimal disruption to academic operations</li>
+          <li>Managed 500+ technology asset inventory, reducing downtime 30% through proactive maintenance</li>
+          <li>Optimized ticketing workflow in ServiceNow, improving issue resolution speed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="section fade-in">
+    <div class="section-heading">Education</div>
+    <div class="edu-item">
+      <div class="edu-left">
+        <div class="edu-school-name">Univ. of Maryland</div>
+        <div class="edu-years">2021 – 2025</div>
+      </div>
+      <div>
+        <div class="edu-degree">B.S. in Information Science</div>
+        <div class="edu-minor">Minor: Information Risk Management, Ethics & Policy</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Fade in on scroll
+  const items = document.querySelectorAll('.fade-in');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.07 });
+  items.forEach(el => obs.observe(el));
+
+  // Download: open the uploaded PDF if available, otherwise print
+  function downloadResume() {
+    const link = document.createElement('a');
+    link.href = 'Samson_Mulugeta_FlowCV_Resume_2026-03-02.pdf';
+    link.download = 'Samson_Mulugeta_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>
 </body>
 </html>
