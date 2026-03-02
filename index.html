@@ -24,12 +24,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
-  font-weight: 400;
   line-height: 1.6;
-  min-height: 100vh;
 }
-
-a { color: inherit; text-decoration: none; }
 
 .page {
   max-width: 860px;
@@ -43,18 +39,11 @@ header {
   border-bottom: 1px solid var(--border);
 }
 
-.header-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
 .name {
   font-family: 'Playfair Display', serif;
   font-size: 2.2rem;
   font-weight: 600;
   color: #fff;
-  letter-spacing: -0.02em;
 }
 
 .name span { color: var(--blue); }
@@ -78,17 +67,13 @@ header {
   gap: 0.5rem;
   font-size: 0.85rem;
   color: var(--muted2);
-  transition: color 0.2s;
 }
-
-.contact-item:hover { color: var(--blue-light); }
 
 .contact-item .dot {
   width: 4px;
   height: 4px;
   border-radius: 50%;
   background: var(--blue);
-  opacity: 0.7;
 }
 
 .section { margin-bottom: 3.5rem; }
@@ -160,7 +145,7 @@ header {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .exp-bullets li {
@@ -178,44 +163,24 @@ header {
   color: var(--blue);
   opacity: 0.6;
 }
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
-}
-
-.fade-in.show {
-  opacity: 1;
-  transform: none;
-}
-
-@media (max-width: 600px) {
-  .header-top { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
-  .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.6rem; }
-}
 </style>
 </head>
 <body>
 
 <div class="page">
 
-<header class="fade-in">
-  <div class="header-top">
-    <div>
-      <div class="name">Samson <span>Mulugeta</span></div>
-      <div class="title-line">Junior Modern Engineer · Accenture · Arlington, VA</div>
-    </div>
-  </div>
+<header>
+  <div class="name">Samson <span>Mulugeta</span></div>
+  <div class="title-line">Junior Modern Engineer · Accenture · Arlington, VA</div>
 
   <div class="contact-row">
-    <a class="contact-item" href="mailto:smulug1244@gmail.com"><span class="dot"></span>smulug1244@gmail.com</a>
-    <a class="contact-item" href="tel:3017691920"><span class="dot"></span>301-769-1920</a>
-    <a class="contact-item" href="https://linkedin.com/in/samson02/" target="_blank"><span class="dot"></span>linkedin.com/in/samson02</a>
+    <div class="contact-item"><span class="dot"></span>smulug1244@gmail.com</div>
+    <div class="contact-item"><span class="dot"></span>301-769-1920</div>
+    <div class="contact-item"><span class="dot"></span>linkedin.com/in/samson02</div>
   </div>
 </header>
 
-<div class="section fade-in">
+<div class="section">
   <div class="section-heading">About</div>
   <div class="about-text">
     Hi, I’m Samson — a Junior Modern Engineer at Accenture with a background in information science and cybersecurity. I specialize in building AI-driven systems, designing multi-agent workflows, and integrating enterprise data into production-grade LLM applications.
@@ -224,14 +189,14 @@ header {
   </div>
 </div>
 
-<div class="section fade-in">
+<div class="section">
   <div class="section-heading">Experience</div>
 
-  <!-- Current Role (NO BULLETS) -->
+  <!-- Accenture -->
   <div class="exp-item">
     <div>
       <div class="exp-company">Accenture</div>
-      <div class="exp-date">Mar 2026 – Present · Arlington, VA</div>
+      <div class="exp-date">03/2026 – Present · Arlington, VA</div>
     </div>
     <div>
       <div class="exp-role">Junior Modern Engineer</div>
@@ -242,14 +207,17 @@ header {
   <div class="exp-item">
     <div>
       <div class="exp-company">FIRST Chesapeake</div>
-      <div class="exp-date">Jul – Oct 2025 · Savage, MD</div>
+      <div class="exp-date">07/2025 – 10/2025 · Savage, MD</div>
     </div>
     <div>
       <div class="exp-role">Operations Associate</div>
       <ul class="exp-bullets">
-        <li>Managed IT asset lifecycle from deployment to disposal, reducing downtime</li>
-        <li>Enhanced Wix website with database search API integration and automated dashboards</li>
-        <li>Implemented Google Sheets API for real-time reporting automation</li>
+        <li>Managed IT asset lifecycle from deployment to disposal, reducing downtime and ensuring smooth operations</li>
+        <li>Troubleshot IT systems, managed accounts, and streamlined onboarding across Google Workspace and Microsoft 365</li>
+        <li>Enhanced Wix website with database search API integration and automated dashboards to reduce manual reporting</li>
+        <li>Implemented Google Sheets API to auto-populate charts and enable real-time data synchronization</li>
+        <li>Coordinated AV, equipment, and logistics for robotics competitions to ensure seamless event operations</li>
+        <li>Tracked milestones and improved workflows in cross-functional projects to boost efficiency and satisfaction</li>
       </ul>
     </div>
   </div>
@@ -257,31 +225,33 @@ header {
   <!-- DOI -->
   <div class="exp-item">
     <div>
-      <div class="exp-company">US Department of the Interior</div>
-      <div class="exp-date">Jun 2023 – Feb 2025 · Washington, DC</div>
+      <div class="exp-company">US Department Of Interior</div>
+      <div class="exp-date">06/2023 – 02/2025 · Washington, DC</div>
     </div>
     <div>
       <div class="exp-role">IT Administrative Intern</div>
       <ul class="exp-bullets">
-        <li>Supported the Government Zero Trust Initiative</li>
-        <li>Conducted system risk assessments and implemented security enhancements</li>
-        <li>Contributed to tailored zero-trust architecture strategy</li>
+        <li>Supported the Government Zero Trust Initiative, ensuring alignment with federal cybersecurity standards</li>
+        <li>Conducted system risk assessments and implemented security enhancements to address vulnerabilities</li>
+        <li>Drafted and refined security policies and monitored implementation across multiple teams</li>
+        <li>Assisted in analyzing network infrastructure and contributed to a tailored zero-trust strategy</li>
       </ul>
     </div>
   </div>
 
-  <!-- UMD Finance -->
+  <!-- Finance Committee -->
   <div class="exp-item">
     <div>
-      <div class="exp-company">University of Maryland</div>
-      <div class="exp-date">Aug 2023 – May 2025 · College Park, MD</div>
+      <div class="exp-company">University Of Maryland</div>
+      <div class="exp-date">08/2023 – 05/2025 · College Park, MD</div>
     </div>
     <div>
       <div class="exp-role">Finance Committee Member</div>
       <ul class="exp-bullets">
-        <li>Oversaw allocation of $1M+ student funding pool</li>
-        <li>Evaluated financial appeals under governance standards</li>
-        <li>Educated 400+ student groups on financial policy compliance</li>
+        <li>Oversaw budget allocation from a $1M+ funding pool for student organizations, ensuring fair and equitable distribution.</li>
+        <li>Evaluated 20+ financial appeals, applying compliance standards and governance policies to ensure transparency.</li>
+        <li>Educated 400+ student groups on financial regulations, ensuring responsible fund management.</li>
+        <li>Advocated for funding policies that promote equitable financial access for a 35,000+ student body.</li>
       </ul>
     </div>
   </div>
@@ -289,50 +259,37 @@ header {
   <!-- Classroom IT -->
   <div class="exp-item">
     <div>
-      <div class="exp-company">University of Maryland</div>
-      <div class="exp-date">Apr 2022 – May 2023 · College Park, MD</div>
+      <div class="exp-company">University Of Maryland</div>
+      <div class="exp-date">04/2022 – 05/2023 · College Park, MD</div>
     </div>
     <div>
       <div class="exp-role">Classroom IT Support Technician</div>
       <ul class="exp-bullets">
-        <li>Resolved smart classroom AV and system issues</li>
-        <li>Managed 500+ asset inventory reducing downtime 30%</li>
-        <li>Optimized ServiceNow ticketing workflow</li>
+        <li>Provided in-person and phone-based technical support to faculty, troubleshooting hardware and software issues</li>
+        <li>Resolved smart classroom AV and system issues, ensuring minimal disruption to academic operations</li>
+        <li>Managed 500+ technology asset inventory, reducing downtime 30% through proactive maintenance</li>
+        <li>Optimized ticketing workflow in ServiceNow, improving issue resolution speed and tracking efficiency</li>
       </ul>
     </div>
   </div>
 
 </div>
 
-<div class="section fade-in">
+<div class="section">
   <div class="section-heading">Education</div>
   <div class="edu-item">
     <div>
-      <div class="edu-school-name">University of Maryland</div>
-      <div class="edu-years">2021 – 2025</div>
+      <div class="edu-school-name">University Of Maryland</div>
+      <div class="edu-years">08/2021 – 05/2025 · College Park, MD</div>
     </div>
     <div>
-      <div class="edu-degree">B.S. in Information Science</div>
+      <div class="edu-degree">Bachelor of Science in Information Science</div>
       <div class="edu-minor">Minor: Information Risk Management, Ethics & Policy</div>
     </div>
   </div>
 </div>
 
 </div>
-
-<script>
-const items = document.querySelectorAll('.fade-in');
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('show');
-      obs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.07 });
-
-items.forEach(el => obs.observe(el));
-</script>
 
 </body>
 </html>
