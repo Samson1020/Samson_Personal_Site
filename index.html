@@ -30,12 +30,12 @@ body {
 .page {
   max-width: 860px;
   margin: 0 auto;
-  padding: 5rem 2rem 6rem;
+  padding: 4rem 2rem 5rem; /* tightened */
 }
 
 header {
-  margin-bottom: 4rem;
-  padding-bottom: 2.5rem;
+  margin-bottom: 3rem; /* tightened */
+  padding-bottom: 2rem;
   border-bottom: 1px solid var(--border);
 }
 
@@ -76,7 +76,7 @@ header {
   background: var(--blue);
 }
 
-.section { margin-bottom: 3.5rem; }
+.section { margin-bottom: 3rem; } /* tightened */
 
 .section-heading {
   font-size: 0.75rem;
@@ -84,7 +84,7 @@ header {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--blue);
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.4rem; /* slightly tighter */
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -97,15 +97,8 @@ header {
   background: var(--border);
 }
 
-.about-text {
-  font-size: 0.95rem;
-  line-height: 1.85;
-  color: var(--muted2);
-  max-width: 720px;
-}
-
 .exp-item, .edu-item {
-  padding: 1.6rem 0;
+  padding: 1.4rem 0; /* slightly tighter */
   border-bottom: 1px solid var(--border);
   display: grid;
   grid-template-columns: 200px 1fr;
@@ -163,6 +156,14 @@ header {
   color: var(--blue);
   opacity: 0.6;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .exp-item, .edu-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -181,18 +182,8 @@ header {
 </header>
 
 <div class="section">
-  <div class="section-heading">About</div>
-  <div class="about-text">
-    Hi, I’m Samson — a Junior Modern Engineer at Accenture with a background in information science and cybersecurity. I specialize in building AI-driven systems, designing multi-agent workflows, and integrating enterprise data into production-grade LLM applications.
-    <br><br>
-    With experience spanning federal IT, zero trust security initiatives, and enterprise AI solutions, I enjoy solving complex problems at the intersection of technology, data, and business. I’m passionate about building scalable, secure systems that reduce manual effort and create measurable impact.
-  </div>
-</div>
-
-<div class="section">
   <div class="section-heading">Experience</div>
 
-  <!-- Accenture -->
   <div class="exp-item">
     <div>
       <div class="exp-company">Accenture</div>
@@ -203,7 +194,6 @@ header {
     </div>
   </div>
 
-  <!-- FIRST Chesapeake -->
   <div class="exp-item">
     <div>
       <div class="exp-company">FIRST Chesapeake</div>
@@ -222,7 +212,6 @@ header {
     </div>
   </div>
 
-  <!-- DOI -->
   <div class="exp-item">
     <div>
       <div class="exp-company">US Department Of Interior</div>
@@ -239,7 +228,6 @@ header {
     </div>
   </div>
 
-  <!-- Finance Committee -->
   <div class="exp-item">
     <div>
       <div class="exp-company">University Of Maryland</div>
@@ -248,15 +236,14 @@ header {
     <div>
       <div class="exp-role">Finance Committee Member</div>
       <ul class="exp-bullets">
-        <li>Oversaw budget allocation from a $1M+ funding pool for student organizations, ensuring fair and equitable distribution.</li>
-        <li>Evaluated 20+ financial appeals, applying compliance standards and governance policies to ensure transparency.</li>
-        <li>Educated 400+ student groups on financial regulations, ensuring responsible fund management.</li>
-        <li>Advocated for funding policies that promote equitable financial access for a 35,000+ student body.</li>
+        <li>Oversaw budget allocation from a $1M+ funding pool for student organizations</li>
+        <li>Evaluated 20+ financial appeals applying compliance standards</li>
+        <li>Educated 400+ student groups on financial regulations</li>
+        <li>Advocated for equitable funding access for a 35,000+ student body</li>
       </ul>
     </div>
   </div>
 
-  <!-- Classroom IT -->
   <div class="exp-item">
     <div>
       <div class="exp-company">University Of Maryland</div>
@@ -265,10 +252,10 @@ header {
     <div>
       <div class="exp-role">Classroom IT Support Technician</div>
       <ul class="exp-bullets">
-        <li>Provided in-person and phone-based technical support to faculty, troubleshooting hardware and software issues</li>
-        <li>Resolved smart classroom AV and system issues, ensuring minimal disruption to academic operations</li>
-        <li>Managed 500+ technology asset inventory, reducing downtime 30% through proactive maintenance</li>
-        <li>Optimized ticketing workflow in ServiceNow, improving issue resolution speed and tracking efficiency</li>
+        <li>Provided in-person and phone-based technical support to faculty</li>
+        <li>Resolved smart classroom AV and system issues</li>
+        <li>Managed 500+ technology asset inventory</li>
+        <li>Optimized ServiceNow ticketing workflow</li>
       </ul>
     </div>
   </div>
